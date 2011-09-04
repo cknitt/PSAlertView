@@ -52,6 +52,8 @@
 }
 
 - (void)addButtonWithTitle:(NSString *)title block:(void (^)()) block {
+  if (!block) { block = ^{}; }
+    
   [_blocks addObject:[[block copy] autorelease]];
   [_alert addButtonWithTitle:title];
 }
